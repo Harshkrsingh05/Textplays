@@ -6,26 +6,32 @@ export default function TextForm(props) {
         // console.log("Uppercase was clicked");
         let newtext=text.toUpperCase();
         setText(newtext)
+        props.showAlert("Converted to uppercase", "success");
     }
     const handleLoClick = ()=>{
         let newtext=text.toLowerCase();
         setText(newtext)
+        props.showAlert("Converted to loewercase", "success");
     }
     const handleErClick = ()=>{
         let newtext=text.replaceAll(/\s/g,'');
         setText(newtext)
+        props.showAlert("Spaces remove", "success");
     }
     const handleClearClick = ()=>{
     let newtext=''
     setText(newtext)
+    props.showAlert("Textarea cleared", "success");
     }     
     const handleCcClick = ()=>{
     let newtext = text.split(". ").map(el => el.charAt(0).toUpperCase() + el.slice(1)).join(". ");
         setText(newtext)
+        props.showAlert("Converted to Capitalise case", "success");
     }   
     const handleTitleClick= ()=>{
         let newtext = text.split(" ").map(el => el.charAt(0).toUpperCase() + el.slice(1)).join(" ");
         setText(newtext)
+        props.showAlert("Converted to Title case", "success");
     }
     const handleReverseClick =() => {
         let splitWord = text.split("");
@@ -33,28 +39,34 @@ export default function TextForm(props) {
         let joinedWords = reverseWord.join("");
         let newtext = joinedWords
         setText(newtext)
+        props.showAlert("Text Reversed", "success");
     }
     const handleCopy = ()=>{
         var text= document.getElementById("myBox");
         text.select();
         navigator.clipboard.writeText(text.value);
+        props.showAlert("Text copied", "success");
     }
     const handleExtraSpace = () =>{
         let newtext=text.split(/[ ]+/);
         setText(newtext.join(" "))
+        props.showAlert("Deleted extra spaces", "success");
     }
     const handleSpeak=() =>{
         let msg = new SpeechSynthesisUtterance();
         msg.text=text;
         window.speechSynthesis.speak(msg);
+        props.showAlert("Voice in progress", "success");
     }
     const handleEncode=()=>{
         let newtext=Buffer.from(text).toString('Base64');
         setText(newtext)
+        props.showAlert("Text Encoded", "success");
     }
     const handleDecode=()=>{
         let newtext = Buffer.from(text, 'base64').toString('ascii');
         setText(newtext)
+        props.showAlert("Text Decoded", "success");
     }
 
     const handleOnChange = (event)=>{
@@ -97,7 +109,7 @@ export default function TextForm(props) {
     </div>
     <div className="container my-3 "style={{color: props.mode==='dark'?'white':'black'}}>
         <h2>Your text summary </h2>
-        <p>{text.split(" ").length} words and {text.length} characters</p>
+        <p>{text.split(" ").length-1} words and {text.length} characters</p>
         <p>{0.45*text.split(" ").length} sec to read.</p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Enter text above to preview."}</p>
