@@ -44,15 +44,15 @@ import {
     <Router>
       <Navbar title="Textplays" about="About" toggleMode={toggleMode} mode ={mode}  />
        <Alert alert ={alert}/>
-       <div className="container my-3">
+       
        < Routes>
           <Route path="/" element={<TextForm showAlert={showAlert} heading={"Enter text here."} mode={mode} />}/>
             
           
-          <Route path="/about" element={<About />}/>        
+          <Route path="/about" element={<About  mode={mode}/>}/>        
           
         </ Routes>
-       </div>
+       
     </Router>   
       <Footer mode={mode}/>
     </>
