@@ -109,9 +109,9 @@ export default function TextForm(props) {
         <button disabled={text.length===0} className="btn btn-danger mx-1 my-1" onClick={handleDecode}>Decode text</button>
         <button disabled={text.length===0} className="btn btn-primary mx-1 my-1" onClick={handleClearClick}>Clear All</button>
     </div>
-    <div className="container my-3 "style={{color: props.mode==='dark'?'white':'black'}}>
+    <div className="container pb-70 my-3  "style={{color: props.mode==='dark'?'white':'black'}}>
         <h2>Your text summary </h2>
-        <p>{text.split("/\s+/").filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
+        <p>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words and {text.length} characters</p>
         <p>{0.45*text.split(" ").filter((element)=>{return element.length!==0}).length} sec to read.</p>
         <h2>Preview</h2>
         <p>{text.length>0?text:"Nothing to preview."}</p>

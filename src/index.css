@@ -1,1 +1,6 @@
-
+::after {
+    filter: invert(1);
+}
+.container.pb-70 {
+    padding-bottom: 70px;
+}

@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import About from './components/About';
 import Alert from './components/Alert';
+import Features from './components/Features';
 import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
@@ -47,12 +48,12 @@ import {
        
        < Routes>
           <Route path="/" element={<TextForm showAlert={showAlert} heading={"Enter text here."} mode={mode} />}/>
-            
           
-          <Route path="/about" element={<About  mode={mode}/>}/>        
-          
+          <Route path="/about" element={<About  mode={mode}/>}/>     
+
+          <Route path="/features" element={<Features mode={mode}/>}/>
+
         </ Routes>
-       
     </Router>   
       <Footer mode={mode}/>
     </>
