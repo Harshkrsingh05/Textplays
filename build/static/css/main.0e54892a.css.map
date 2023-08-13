@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.0e54892a.css","mappings":"AAAA,OACI,wBAAiB,CAAjB,gBACJ,CACA,iBACI,mBACJ","sources":["index.css"],"sourcesContent":["::after {\n    filter: invert(1);\n}\n.container.pb-70 {\n    padding-bottom: 70px;\n}"],"names":[],"sourceRoot":""}
